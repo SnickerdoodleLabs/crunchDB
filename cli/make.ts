@@ -39,4 +39,6 @@ if (args.make === MakeType.Error) {
         }
         
     });
+} else {
+    console.info("pass -h for a list of options")
 }

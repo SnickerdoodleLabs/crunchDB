@@ -20,13 +20,16 @@ exports.args = (0, ts_command_line_args_1.parse)({
 });
 console.log(exports.args);
 if (exports.args.make === MakeType.Error) {
-    console.log('making error');
+    console.info('making error');
     makeUtils.makeError(exports.args.name).then(function (res) {
         if (res) {
-            console.log('Error created');
+            console.info('Error created');
         }
         else {
-            console.log('Error already exists');
+            console.warn('Error already exists');
         }
     });
+}
+else {
+    console.info("pass -h for a list of options");
 }
