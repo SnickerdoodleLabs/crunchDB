@@ -19,3 +19,5 @@
 **Co-occurance matrix**:  VocabularySize x VocabularySize matrix with pair counts (excludes self)
 
 **TF-IDF**: a weight function to give more weights to rare words.
+
+**Session**: the context of a recommendation task. A session can have its own vocabulary, embeddings, and tokens.
