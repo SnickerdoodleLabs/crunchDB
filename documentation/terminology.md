@@ -6,9 +6,9 @@
 
 **VocabularySize**: == len(WordToIndex) == len(WordToEmbedding)
 
-**Token**: numeric id assigned to words
+**Token**: numeric id assigned to words (Label Encoding)
 
-**OHE**: One hot encoding
+**OHE**: One hot encoding 
 
 **Embedding**: dense semantic word vector (word2vec/glove)
 
@@ -17,3 +17,5 @@
 **Co-occurrence**: P(word1, word2)
 
 **Co-occurance matrix**:  VocabularySize x VocabularySize matrix with pair counts (excludes self)
+
+**TF-IDF**: a weight function to give more weights to rare words.
