@@ -1,3 +1,3 @@
-export * from './nlp/index.js';
-export * from './ranking/index.js';
-export * from './vectorDB/index.js';
+export * from './nlp';
+export * from './ranking';
+export * from './vectorDB';

@@ -1,6 +1,6 @@
-export * from './implementations/index.js';
-export * from './interfaces/index.js';
-export * from './objects/index.js';
+export * from './implementations';
+export * from './interfaces';
+export * from './objects';
 
 
 export const sum = (a: number, b: number) => {
