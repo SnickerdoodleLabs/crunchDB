@@ -28,17 +28,34 @@ export const args = parse<Make>(
 );
 
 console.log(args)
-if (args.make === MakeType.Error) {
-    console.info('making error')
-    makeUtils.makeError(args.name).then((res) => {
+// if (args.make === MakeType.Error) {
+//     console.info('making error')
+//     makeUtils.makeError(args.name).then((res) => {
         
-        if (res) {
+//         if (res) {
+//             console.info('Error created');
+//         } else {
+//             console.warn('Error already exists');
+//         }
+        
+//     });
+// } else {
+//     console.info("pass -h for a list of options")
+// }
+
+async function process(args) {
+    if (args.make === MakeType.Error) {
+        console.info('making error')
+        const res = await makeUtils.makeError(args.name);
+        // console.log(res);
+        if(res.isOk()){
             console.info('Error created');
         } else {
-            console.warn('Error already exists');
+            console.warn(res.error.message);
         }
-        
-    });
-} else {
-    console.info("pass -h for a list of options")
+    } else {
+        console.info("pass -h for a list of options")
+    }
 }
+
+process(args);
