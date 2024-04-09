@@ -1,5 +1,5 @@
 const errorCodes: {[Key: string]: string} = {
         DataError: "ERR_DataError",
-    DataError2: "ERR_DataError2",
+    IndexDBError: "ERR_IndexDBError",
 }
 export default errorCodes;

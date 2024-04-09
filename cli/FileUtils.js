@@ -13,6 +13,9 @@ var FileUtils = /** @class */ (function () {
         return fs.writeFile(path, content)
             .then(function () { return true; })["catch"](function () { return false; });
     };
+    FileUtils.readFile = function (path) {
+        return fs.readFile(path, 'utf-8');
+    };
     return FileUtils;
 }());
 exports.FileUtils = FileUtils;

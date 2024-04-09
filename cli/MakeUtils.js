@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -48,64 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.MakeUtils = void 0;
-var FileUtils_1 = require("./FileUtils");
-var codeTemplates_1 = require("./codeTemplates");
-var errorCodes_1 = require("../src/objects/error/errorCodes");
+var makers_1 = require("./makers");
 var MakeUtils = /** @class */ (function () {
     function MakeUtils() {
-        this.errorDirectory = 'src/objects/error/';
+        this.errorMaker = new makers_1.ErrorMaker();
     }
     MakeUtils.prototype.makeError = function (name) {
         return __awaiter(this, void 0, void 0, function () {
-            var res;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.hasError(name)];
-                    case 1:
-                        if (_a.sent()) {
-                            return [2 /*return*/, false];
-                        }
-                        return [4 /*yield*/, FileUtils_1.FileUtils.writeFile(this.errorPath(name), this.errorTemplate(name))];
-                    case 2:
-                        res = _a.sent();
-                        if (res) {
-                            return [2 /*return*/, this.addErrorType(name)];
-                        }
-                        else {
-                            return [2 /*return*/, false];
-                        }
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/, this.errorMaker.makeError(name)];
             });
         });
-    };
-    MakeUtils.prototype.hasError = function (name) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, FileUtils_1.FileUtils.exists(this.errorPath(name))];
-            });
-        });
-    };
-    MakeUtils.prototype.errorPath = function (name) {
-        return this.errorDirectory + name + '.ts';
-    };
-    MakeUtils.prototype.errorCodePath = function (name) {
-        return this.errorDirectory + "errorCodes" + '.ts';
-    };
-    MakeUtils.prototype.errorTemplate = function (name) {
-        return codeTemplates_1.errorTemplate.replace(new RegExp('@@@name@@@', 'g'), name);
-    };
-    MakeUtils.prototype.addErrorType = function (name) {
-        var _a;
-        var newErrorCodes = __assign(__assign({}, errorCodes_1["default"]), (_a = {}, _a[name] = "ERR_".concat(name), _a));
-        var strBuff = [];
-        for (var key in newErrorCodes) {
-            strBuff.push("    ".concat(key, ": \"").concat(newErrorCodes[key], "\","));
-        }
-        var body = strBuff.join('\n');
-        var content = codeTemplates_1.errorCodesTemplate.replace(new RegExp('@@@errorCodes@@@', 'g'), body);
-        console.log(content);
-        return FileUtils_1.FileUtils.writeFile(this.errorCodePath(name), content);
     };
     return MakeUtils;
 }());

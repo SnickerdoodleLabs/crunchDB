@@ -16,7 +16,7 @@ interface Make {
 
 export const args = parse<Make>( 
     {
-        make: { type: String, alias: 'm', description: 'Type of make'},
+        make: { type: String,  alias: 'm', description: 'Type of make'},
         name: { type: String, alias: 'n', description: 'Copies files rather than moves them' },
         help: { type: Boolean, optional: true, alias: 'h', description: 'Prints this usage guide' },
     },
