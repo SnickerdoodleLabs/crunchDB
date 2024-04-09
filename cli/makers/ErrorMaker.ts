@@ -70,10 +70,4 @@ export class ErrorMaker{
         });
     }
 
-    private cleanUpErrorCodesCompiled(): Promise<boolean> {
-        // return FileUtils.exists(this.errorCodePath(name));
-        return Promise.resolve(true); // TODO
-    }
-
-
 }

@@ -20,7 +20,8 @@
     "analyze": "size-limit --why",
     "build-maker": "tsc cli/make.ts --outDir build",
     "make": "node cli/make.js",
-    "make:error": "node cli/make.js -m error -n"
+    "make:error-old": "node cli/make.js -m error -n",
+    "make:error": "node build/cli/make.js -m error -n"
   },
   "peerDependencies": {},
   "husky": {
