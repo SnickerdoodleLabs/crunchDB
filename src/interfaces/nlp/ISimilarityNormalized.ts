@@ -1,5 +1,5 @@
-namespace nlp {
-    export interface ISimilarityNormalized {
-        getNormalizedSimilarityScore(): number;
-    }
+import { SimilarityScoreNormalized } from "objects";
+
+export interface ISimilarityNormalized {
+    getNormalizedSimilarityScore(): SimilarityScoreNormalized;
 }

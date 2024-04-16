@@ -1,1 +1,2 @@
-export * from "./RawSimilarityScore";
+export * from './SimilarityScoreNormalized';
+export * from './SimilarityScoreRaw';

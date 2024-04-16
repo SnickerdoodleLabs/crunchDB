@@ -1,7 +1,5 @@
-import { RawSimilarityScore } from "objects";
+import { SimilarityScoreRaw } from "objects";
 
-namespace nlp {
-    export interface ISimilarityRaw {
-        getRawSimilarityScore(): RawSimilarityScore;
-    }
+export interface ISimilarityRaw {
+    getRawSimilarityScore(): SimilarityScoreRaw;
 }

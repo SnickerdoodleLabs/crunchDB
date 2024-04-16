@@ -6,6 +6,7 @@ const makeUtils = new MakeUtils();
 enum MakeType {
     Error = 'error',
     Brand = 'brand',
+    
 }
 
 interface Make {
