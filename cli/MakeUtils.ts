@@ -9,7 +9,7 @@ export class MakeUtils{
    
     }
     public makeBrand(name: string, type: string, domain: string): ResultAsync<void, Error> {
-        return this.errorMaker.makeError(name);
+        return this.brandMaker.make(name, type, domain);
    
     }
 

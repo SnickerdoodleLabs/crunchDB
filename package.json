@@ -21,7 +21,8 @@
     "build-maker": "tsc cli/make.ts --outDir build",
     "make": "node cli/make.js",
     "make:error-old": "node cli/make.js -m error -n",
-    "make:error": "node build/cli/make.js -m error -n"
+    "make:error": "node build/cli/make.js -m error -n",
+    "make:brand": "node build/cli/make.js -m brand -n"
   },
   "peerDependencies": {},
   "husky": {

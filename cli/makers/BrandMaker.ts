@@ -4,7 +4,7 @@ import { ResultAsync, okAsync } from 'neverthrow';
 
 export class BrandMaker{
     errorDirectory: string = 'src/objects/primitive/';
-    public make(name: string, domain): ResultAsync<void, Error> {
+    public make(name: string, type: string, domain: string): ResultAsync<void, Error> {
         return this.noExists(name)
             .andThen((e) =>{
                 // console.log('Error does not exist');
