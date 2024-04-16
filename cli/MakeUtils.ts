@@ -9,6 +9,9 @@ export class MakeUtils{
    
     }
     public makeBrand(name: string, type: string, domain: string): ResultAsync<void, Error> {
+        if (!type || type === "") {
+            type = "unknown";
+        }
         return this.brandMaker.make(name, type, domain);
    
     }

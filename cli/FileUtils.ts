@@ -35,6 +35,7 @@ export class FileUtils {
 
     }
     static notExists(path: string): ResultAsync<void, Error>{
+        console.log(`Checking if file exists ${path}`);
         return ResultAsync.fromPromise(
             this._notExists(path).then((res) => {}),
             (e) => new Error(`${e}`)
