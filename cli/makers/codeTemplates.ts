@@ -16,4 +16,9 @@ const errorCodesTemplate = `const errorCodes: {[Key: string]: string} = {
 }
 export default errorCodes;`;
 
-export { errorTemplate, errorCodesTemplate };
+const brandTemplate = `import { Brand, make } from "ts-brand";
+export type @@@name@@@ = Brand<number, "@@@name@@@">;
+export const @@@name@@@ = make<@@@name@@@>();
+`;
+
+export { errorTemplate, errorCodesTemplate, brandTemplate };

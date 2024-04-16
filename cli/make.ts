@@ -11,6 +11,8 @@ enum MakeType {
 interface Make {
     make: string;
     name: string;
+    type?: string;
+    domain?: string;
     help?: boolean;
 }
 
@@ -18,6 +20,8 @@ export const args = parse<Make>(
     {
         make: { type: String,  alias: 'm', description: 'Type of make'},
         name: { type: String, alias: 'n', description: 'Copies files rather than moves them' },
+        type: { type: String, optional: true, alias: 't', description: 'Data type' },
+        domain: { type: String, optional: true, alias: 'd', description: 'Domains such as nlp, ranking, vectorDB' },
         help: { type: Boolean, optional: true, alias: 'h', description: 'Prints this usage guide' },
     },
     {
@@ -28,20 +32,8 @@ export const args = parse<Make>(
 );
 
 console.log(args)
-// if (args.make === MakeType.Error) {
-//     console.info('making error')
-//     makeUtils.makeError(args.name).then((res) => {
-        
-//         if (res) {
-//             console.info('Error created');
-//         } else {
-//             console.warn('Error already exists');
-//         }
-        
-//     });
-// } else {
-//     console.info("pass -h for a list of options")
-// }
+// examples
+
 
 async function process(args) {
     if (args.make === MakeType.Error) {
@@ -53,6 +45,16 @@ async function process(args) {
         } else {
             console.warn(res.error.message);
         }
+    } else if (args.make === MakeType.Brand) {
+        console.info('making brand')
+        const res = await makeUtils.makeBrand(args.name, args.type, args.domain);
+        // console.log(res);
+        if(res.isOk()){
+            console.info('Brand created');
+        } else {
+            console.warn(res.error.message);
+        }
+    
     } else {
         console.info("pass -h for a list of options")
     }
