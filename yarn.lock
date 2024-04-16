@@ -6645,6 +6645,11 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+ts-brand@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ts-brand/-/ts-brand-0.1.0.tgz#9fd2af7566e09debda2a3631b027101a965762dc"
+  integrity sha512-DDPY7vBCCAMC9nN4STBSF3s4+aay/jZFTVmISngAoTsYRG/drdzAXPr8npKah0AhwjHspys3/+DyR2QwyZ3JgA==
+
 ts-command-line-args@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/ts-command-line-args/-/ts-command-line-args-2.5.1.tgz#e64456b580d1d4f6d948824c274cf6fa5f45f7f0"

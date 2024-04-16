@@ -58,6 +58,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "neverthrow": "^6.1.0"
+    "neverthrow": "^6.1.0",
+    "ts-brand": "^0.1.0"
   }
 }
