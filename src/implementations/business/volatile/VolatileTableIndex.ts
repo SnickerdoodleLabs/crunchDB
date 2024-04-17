@@ -3,9 +3,9 @@ import {
   ERecordKey,
   VersionedObject,
   VersionedObjectMigrator,
-} from "@snickerdoodlelabs/objects";
+} from '@crunchDB/objects';
 
-import { IStorageIndex } from "@persistence/IStorageIndex.js";
+import { IStorageIndex } from '@crunchDB/implementations/business/volatile/IStorageIndex.js';
 
 /**
  * Represents the structure of a table in the volatile storage.
@@ -14,8 +14,7 @@ import { IStorageIndex } from "@persistence/IStorageIndex.js";
  * @todo TODO: name of this class is confusing,
  */
 export class VolatileTableIndex<T extends VersionedObject>
-  implements IStorageIndex
-{
+  implements IStorageIndex {
   /**
    * Creates an instance of VolatileTableIndex.
    * @param {ERecordKey} name - The name of the object store.
@@ -42,6 +41,6 @@ export class VolatileTableIndex<T extends VersionedObject>
     public priority: EBackupPriority,
     public backupInterval: number,
     public maxChunkSize: number,
-    public indexBy?: [string | string[], boolean][],
+    public indexBy?: [string | string[], boolean][]
   ) {}
 }
