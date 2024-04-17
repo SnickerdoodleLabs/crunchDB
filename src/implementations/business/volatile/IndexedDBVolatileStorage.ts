@@ -43,7 +43,7 @@ export class IndexedDBVolatileStorage implements IVolatileStorage {
       .getVolatileStorageSchema()
       .map(schema => {
         return new IndexedDB(
-          'SD_Wallet',
+          'CrunchDB',
           Array.from(schema.values()),
           indexedDB, // This is magical; it's a global variable IDBFactory
           this.logUtils,
