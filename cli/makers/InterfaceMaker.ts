@@ -27,7 +27,7 @@ export class InterfaceMaker extends BaseMaker {
 
     private getDirectory(domain: string): string {
         if (domain && domain !== "") {
-            return this.directory.substring(0, this.directory.length - 1) + domain + "/";
+            return this.directory + domain + "/";
         }
         return this.directory;
     }
