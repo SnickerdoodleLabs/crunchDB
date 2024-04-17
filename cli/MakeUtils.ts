@@ -18,6 +18,7 @@ export class MakeUtils{
     }
     public makeInterface(name: string, domain: string): ResultAsync<void, Error> {
         if (!name.startsWith("I")) {
+            name = "I" + name;
         }
         return this.interfaceMaker.make(name, domain);
    

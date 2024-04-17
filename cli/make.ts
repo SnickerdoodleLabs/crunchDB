@@ -57,11 +57,11 @@ async function process(args) {
         }
     
     } else if (args.make === MakeType.Interface) {
-        console.info('making brand')
-        const res = await makeUtils.makeBrand(args.name, args.type, args.domain);
+        console.info('making interface')
+        const res = await makeUtils.makeInterface(args.name, args.domain);
         // console.log(res);
         if(res.isOk()){
-            console.info('Brand created');
+            console.info('interface created');
         } else {
             console.warn(res.error.message);
         }
