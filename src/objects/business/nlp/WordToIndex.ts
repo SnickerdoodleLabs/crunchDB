@@ -1,5 +1,5 @@
-import { WordIndex } from "objects/primitive";
+import { WordIndex, WordRoot } from "objects/primitive";
 import { Word } from "objects/primitive/Word";
 export type WordToIndex = {
-    [key: Word]: WordIndex;
+    [key: Word | WordRoot]: WordIndex;
 }
