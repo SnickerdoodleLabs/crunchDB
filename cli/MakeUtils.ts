@@ -1,9 +1,10 @@
-import { ErrorMaker, BrandMaker } from './makers';
+import { ErrorMaker, BrandMaker, InterfaceMaker } from './makers';
 import { ResultAsync, okAsync } from 'neverthrow';
 
 export class MakeUtils{
     errorMaker: ErrorMaker = new ErrorMaker();
     brandMaker: BrandMaker = new BrandMaker();
+    interfaceMaker: InterfaceMaker = new InterfaceMaker();
     public makeError(name: string): ResultAsync<void, Error> {
         return this.errorMaker.makeError(name);
    
@@ -15,6 +16,13 @@ export class MakeUtils{
         return this.brandMaker.make(name, type, domain);
    
     }
+    public makeInterface(name: string, domain: string): ResultAsync<void, Error> {
+        if (!name.startsWith("I")) {
+        }
+        return this.interfaceMaker.make(name, domain);
+   
+    }
+
 
     
 }

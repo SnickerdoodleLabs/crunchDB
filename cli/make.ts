@@ -6,7 +6,7 @@ const makeUtils = new MakeUtils();
 enum MakeType {
     Error = 'error',
     Brand = 'brand',
-    
+    Interface = 'interface',
 }
 
 interface Make {
@@ -47,6 +47,16 @@ async function process(args) {
             console.warn(res.error.message);
         }
     } else if (args.make === MakeType.Brand) {
+        console.info('making brand')
+        const res = await makeUtils.makeBrand(args.name, args.type, args.domain);
+        // console.log(res);
+        if(res.isOk()){
+            console.info('Brand created');
+        } else {
+            console.warn(res.error.message);
+        }
+    
+    } else if (args.make === MakeType.Interface) {
         console.info('making brand')
         const res = await makeUtils.makeBrand(args.name, args.type, args.domain);
         // console.log(res);
