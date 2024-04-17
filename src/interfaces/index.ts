@@ -1,3 +1,3 @@
-export * from './nlp';
-export * from './ranking';
-export * from './vectorDB';
+export * from './nlp/index';
+export * from './utilities';
+export * from './ICrunchDB';

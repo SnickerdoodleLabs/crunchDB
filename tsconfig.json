@@ -4,6 +4,11 @@
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
+    "types": ["reflect-metadata", "node"],
+    "baseUrl": ".", // This must be specified if "paths" is.
+    "paths": {
+      "@crunchDB/*": ["src/*"]
+    },
     "importHelpers": true,
     // output .d.ts declaration files for consumers
     "declaration": true,
@@ -30,7 +35,6 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": true,
-    "baseUrl": "src",
+    "noEmit": true
   }
 }

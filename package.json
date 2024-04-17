@@ -24,7 +24,6 @@
     "make:error": "node build/cli/make.js -m error -n",
     "make:brand": "node build/cli/make.js -m brand -n"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -51,6 +50,8 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.2",
+    "@types/node": "^20.12.7",
+    "fake-indexeddb": "^5.0.2",
     "husky": "^9.0.11",
     "size-limit": "^11.1.2",
     "ts-command-line-args": "^2.5.1",
@@ -59,7 +60,12 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "inversify": "^6.0.2",
     "neverthrow": "^6.1.0",
+    "neverthrow-result-utils": "^2.0.2",
+    "pino": "^8.20.0",
+    "reflect-metadata": "^0.2.2",
     "ts-brand": "^0.1.0"
   }
 }
