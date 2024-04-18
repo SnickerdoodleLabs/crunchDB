@@ -1,1 +1,1 @@
-export * from '@crunchDB/objects/utilities/PropertiesOf.js';
+export * from './PropertiesOf.js';

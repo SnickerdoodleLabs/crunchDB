@@ -7,7 +7,7 @@
     "types": ["reflect-metadata", "node"],
     "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
-      "@crunchDB/*": ["src/*"]
+      "crunchDB/*": ["src/*"]
     },
     "importHelpers": true,
     // output .d.ts declaration files for consumers

@@ -1,1 +1,1 @@
-export * from '@crunchDB/implementations/business/IndexedDB.js';
+export * from './volatile';
