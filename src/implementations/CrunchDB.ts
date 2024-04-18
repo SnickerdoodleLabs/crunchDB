@@ -1,5 +1,5 @@
 import { Container } from 'inversify';
-import { ICrunchDB } from '@crunchDB/interfaces/ICrunchDB';
+import { ICrunchDB } from 'crunchDB/interfaces/ICrunchDB';
 
 export class CrunchDB implements ICrunchDB {
   protected iocContainer: Container;

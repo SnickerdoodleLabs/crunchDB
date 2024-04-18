@@ -2,10 +2,10 @@ import {
   ERecordKey,
   PersistenceError,
   VersionedObject,
-} from '@crunchDB/objects';
+} from 'crunchDB/objects';
 import { ResultAsync } from 'neverthrow';
 
-import { VolatileTableIndex } from '@crunchDB/implementations/business/volatile/VolatileTableIndex';
+import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex';
 
 export interface IVolatileStorageSchemaProvider {
   getVolatileStorageSchema(): ResultAsync<

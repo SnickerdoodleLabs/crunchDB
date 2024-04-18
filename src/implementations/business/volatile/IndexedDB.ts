@@ -1,4 +1,4 @@
-import { ILogUtils, ITimeUtils } from '@crunchDB/interfaces/utilities';
+import { ILogUtils, ITimeUtils } from 'crunchDB/interfaces/utilities';
 import {
   EBoolean,
   ERecordKey,
@@ -8,13 +8,13 @@ import {
   VolatileStorageKey,
   VolatileStorageMetadata,
   VolatileStorageMetadataIndexes,
-} from '@crunchDB/objects';
+} from 'crunchDB/objects';
 import { errAsync, okAsync, ResultAsync } from 'neverthrow';
 import { ResultUtils } from 'neverthrow-result-utils';
 
-import { IndexedDBCursor } from '@crunchDB/implementations/business/volatile/IndexedDBCursor.js';
-import { IVolatileCursor } from '@crunchDB/implementations/business/volatile/IVolatileCursor.js';
-import { VolatileTableIndex } from '@crunchDB/implementations/business/volatile/VolatileTableIndex.js';
+import { IndexedDBCursor } from 'crunchDB/implementations/business/volatile/IndexedDBCursor.js';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
+import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex.js';
 
 export class IndexedDB {
   private _initialized?: ResultAsync<IDBDatabase, PersistenceError>;

@@ -2,10 +2,10 @@ import {
   PersistenceError,
   VersionedObject,
   VolatileStorageMetadata,
-} from '@crunchDB/objects';
+} from 'crunchDB/objects';
 import { okAsync, ResultAsync } from 'neverthrow';
 
-import { IVolatileCursor } from '@crunchDB/implementations/business/volatile/IVolatileCursor.js';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
 
 export class IndexedDBCursor<T extends VersionedObject>
   implements IVolatileCursor<T> {

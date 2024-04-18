@@ -2,7 +2,7 @@ import {
   PersistenceError,
   VersionedObject,
   VolatileStorageMetadata,
-} from '@crunchDB/objects';
+} from 'crunchDB/objects';
 import { ResultAsync } from 'neverthrow';
 
 export interface IVolatileCursor<T extends VersionedObject> {

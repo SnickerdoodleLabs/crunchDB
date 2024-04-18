@@ -1,4 +1,4 @@
-import { EBackupPriority, StorageKey } from '@crunchDB/objects';
+import { EBackupPriority, StorageKey } from 'crunchDB/objects';
 
 export interface IStorageIndex {
   name: StorageKey;

@@ -3,7 +3,7 @@ import {
   ILogUtilsType,
   ITimeUtils,
   ITimeUtilsType,
-} from '@crunchDB/interfaces';
+} from 'crunchDB/interfaces';
 import {
   DatabaseVersion,
   ERecordKey,
@@ -11,17 +11,17 @@ import {
   VersionedObject,
   VolatileStorageKey,
   VolatileStorageMetadata,
-} from '@crunchDB/objects';
+} from 'crunchDB/objects';
 import { inject, injectable } from 'inversify';
 import { ResultAsync } from 'neverthrow';
 
-import { IndexedDB } from '@crunchDB/implementations/business/volatile/IndexedDB.js';
-import { IVolatileCursor } from '@crunchDB/implementations/business/volatile/IVolatileCursor.js';
-import { IVolatileStorage } from '@crunchDB/implementations/business/volatile/IVolatileStorage.js';
+import { IndexedDB } from 'crunchDB/implementations/business/volatile/IndexedDB.js';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
+import { IVolatileStorage } from 'crunchDB/implementations/business/volatile/IVolatileStorage.js';
 import {
   IVolatileStorageSchemaProvider,
   IVolatileStorageSchemaProviderType,
-} from '@crunchDB/implementations/business/volatile/IVolatileStorageSchemaProvider.js';
+} from 'crunchDB/implementations/business/volatile/IVolatileStorageSchemaProvider.js';
 
 @injectable()
 export class IndexedDBVolatileStorage implements IVolatileStorage {

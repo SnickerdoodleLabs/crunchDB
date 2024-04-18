@@ -1,7 +1,7 @@
-import { ERecordKey, VersionedObject } from '@crunchDB/objects';
+import { ERecordKey, VersionedObject } from 'crunchDB/objects';
 
-import { IPersistenceConfig } from '@crunchDB/implementations/business/volatile/IPersistenceConfig';
-import { VolatileTableIndex } from '@crunchDB/implementations/business/volatile/VolatileTableIndex.js';
+import { IPersistenceConfig } from 'crunchDB/implementations/business/volatile/IPersistenceConfig';
+import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex.js';
 
 // This function generates a map of object store configurations for IndexedDB.
 // It takes an optional configuration object to customize the settings for each object store.

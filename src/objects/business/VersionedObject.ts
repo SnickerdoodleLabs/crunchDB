@@ -1,4 +1,4 @@
-import { PropertiesOf } from '@crunchDB/objects/utilities';
+import { PropertiesOf } from 'crunchDB/objects/utilities';
 
 export abstract class VersionedObject {
   public abstract getVersion(): number;
