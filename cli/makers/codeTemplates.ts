@@ -21,4 +21,8 @@ export type @@@name@@@ = Brand<@@@type@@@, "@@@name@@@">;
 export const @@@name@@@ = make<@@@name@@@>();
 `;
 
-export { errorTemplate, errorCodesTemplate, brandTemplate };
+const interfaceTemplate = `export interface @@@name@@@ {
+}
+export const @@@name@@@Type = Symbol.for("@@@name@@@");
+`;
+export { errorTemplate, errorCodesTemplate, brandTemplate, interfaceTemplate };

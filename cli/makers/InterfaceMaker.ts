@@ -1,25 +1,23 @@
 import { FileUtils } from '../FileUtils';
 import { BaseMaker } from './BaseMaker';
-import { brandTemplate} from './codeTemplates';
+import { interfaceTemplate } from './codeTemplates';
 import { ResultAsync, okAsync } from 'neverthrow';
 
-export class BrandMaker extends BaseMaker {
-    directory: string = 'src/objects/primitive/';
-    public make(name: string, type: string, domain: string): ResultAsync<void, Error> {
+export class InterfaceMaker extends BaseMaker {
+    directory: string = 'src/interfaces/';
+    public make(name: string, domain: string): ResultAsync<void, Error> {
         return this.noExists(name, domain)
             .andThen((e) =>{
-                // console.log('Brand does not exist');
-                return FileUtils.writeFile(this.classPath(name, domain), this.template(name, type))
+                return FileUtils.writeFile(this.classPath(name, domain), this.template(name))
                     .andThen(() => {
                         
                         return this.addToIndex(name, domain)
                         .mapErr((e) => {
-                            return new Error(`Brand adding to index. Please add ${name} to ${this.indexPath(domain)} manually.`)
+                            return new Error(`Interface adding to index. Please add ${name} to ${this.indexPath(domain)} manually.`)
                         })
                     });
             }).mapErr((e) => {
-                // console.log('Brand exists', e);
-                return new Error("Brand already exists"); 
+                return new Error("Interface already exists at " + this.classPath(name, domain)); 
             });
             
     }
@@ -29,7 +27,7 @@ export class BrandMaker extends BaseMaker {
 
     private getDirectory(domain: string): string {
         if (domain && domain !== "") {
-            return this.directory.replace("primitive", "business/" + domain + "/");
+            return this.directory + domain + "/";
         }
         return this.directory;
     }
@@ -44,8 +42,8 @@ export class BrandMaker extends BaseMaker {
     private indexPath(domain: string): string {
         return this.getDirectory(domain) + 'index.ts';
     }
-    private template(name: string, type: string): string {
-        return brandTemplate.replace(new RegExp('@@@name@@@', 'g'), name).replace(new RegExp('@@@type@@@', 'g'), type);
+    private template(name: string): string {
+        return interfaceTemplate.replace(new RegExp('@@@name@@@', 'g'), name);
     }
 
     private addToIndex(name: string, domain: string): ResultAsync<void, Error> {
