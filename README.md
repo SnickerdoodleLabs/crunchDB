@@ -11,6 +11,11 @@ CrunchDB is a browser-native vector database written in typscript designed by us
 - enable the development of privacy-preserving recommender systemsß
 
 
+# Developer Guides
+## [Contributing to the project](./documentation/developer-guide.md)
+## [Using the library](./documentation/user-guide.md)
+
+
 # TSDX User Guide
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
