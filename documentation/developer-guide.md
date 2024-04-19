@@ -27,6 +27,10 @@ src
 2. Error: javascript complied code loses types. So, error objects needs a code for identification
 3. Dependency Injection: all the dependencies are injected through constructor or function calls.
 4. Branded types: branded types are aliases. (Age is a number)
+5. Clean Code (Robert C. Martin)
+6. Strict SOLID principles
+7. Peer reviews and automated tests before merging
+8. No side-effects in public classes. [More](https://medium.com/storyblocks-engineering/these-four-clean-code-tips-will-dramatically-improve-your-engineering-teams-productivity-b5bd121dd150)
 
 
 # Code Generator
