@@ -1,5 +1,5 @@
-import { SimilarityScoreNormalized } from "objects";
+import { Embedding, SimilarityScoreNormalized } from "objects";
 
 export interface ISimilarityNormalized {
-    getNormalizedSimilarityScore(): SimilarityScoreNormalized;
+    getNormalizedSimilarityScore(embedding1: Embedding, embedding2: Embedding): SimilarityScoreNormalized;
 }
