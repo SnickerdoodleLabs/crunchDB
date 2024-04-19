@@ -43,8 +43,10 @@ We have a code generator (**maker**) to help you with boiler plates. It's a CLI 
 yarn build-maker
 ```
 
+**This may show some build errors, but you can safely ignore them**
+
 ## Error Generation
-Error directory is flat. 
+Error directory is **flat**. 
 ```
 yarn make:error MyNewError
 ```
