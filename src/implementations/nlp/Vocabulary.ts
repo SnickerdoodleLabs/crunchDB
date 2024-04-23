@@ -1,5 +1,5 @@
-import { IVocabulary } from "interfaces";
-import { VocabularySize, Word, WordRoot, WordIndex, WordToIndex } from "objects";
+import { IVocabulary } from "crunchDB/interfaces";
+import { VocabularySize, Word, WordRoot, WordIndex, WordToIndex } from "crunchDB/objects";
 
 export class Vocabulary implements IVocabulary {
 

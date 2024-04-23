@@ -10,7 +10,7 @@
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
-    "rootDir": "./src",
+    // "rootDir": "./src",
     // stricter type-checking for stronger correctness. Recommended by TS
     "strict": true,
     // linter checks for common issues
@@ -31,14 +31,22 @@
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
-    "baseUrl": "src",
+    "types": ["node","jest"],
+    "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
-      // allow absolute imports from the `src` directory
-      "@/*": ["*"],
-      // allow absolute imports from the `types` directory
-      "@types/*": ["../types/*"],
-      "module": ["src/objects"]
+      "crunchDB/*": ["src/*"],
+      "objects/*": ["src/objects/*"],
+      "implementations/*": ["src/implementations/*"],
+      "interfaces/*": ["src/interfaces/*"],
+
+    },
+    // "paths": {
+    //   // allow absolute imports from the `src` directory
+    //   "@objects2/*": ["src/objects2/*"],
+    //   // allow absolute imports from the `types` directory
+    //   // "@types/*": ["../types/*"],
+    //   // "module": ["src/objects"]
       
-    }
+    // }
   }
 }

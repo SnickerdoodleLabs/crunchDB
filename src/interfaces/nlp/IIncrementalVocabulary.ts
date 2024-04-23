@@ -1,4 +1,4 @@
-import { Word, WordRoot } from "objects";
+import { Word, WordRoot } from "crunchDB/objects";
 import { IVocabulary } from "./IVocabulary";
 
 export interface IIncrementalVocabulary extends IVocabulary {

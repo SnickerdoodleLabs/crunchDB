@@ -1,2 +1,1 @@
-// export * from './Vocabulary';
-export * from "./OHETest";
+export * from './Vocabulary';

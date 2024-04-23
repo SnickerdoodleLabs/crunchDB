@@ -1,5 +1,4 @@
-import { VocabularySize, Word, WordIndex, WordRoot } from "objects";
-import { WordToIndex } from "objects/business/nlp/WordToIndex";
+import { VocabularySize, Word, WordIndex, WordRoot, WordToIndex } from "crunchDB/objects";
 
 export interface IVocabulary {
     getWordToIndex(): WordToIndex;
