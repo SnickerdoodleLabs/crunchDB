@@ -6,6 +6,13 @@ describe("Vocabulary", () => {
     let vocabulary: Vocabulary;
 
     beforeEach(() => {
+        
+        const currentTestName = expect.getState().currentTestName;
+
+        if (currentTestName === "Vocabulary should not assign an index to a word that already has an index") {
+            words.push(Word("apple")); // Add a duplicate word to the vocabulary
+        }
+
         vocabulary = new Vocabulary(words);
     });
     
@@ -37,5 +44,12 @@ describe("Vocabulary", () => {
 
         // Check if the vocabulary size matches the number of words
         expect(size).toBe(words.length);
+    });
+
+    test("should not assign an index to a word that already has an index", () => {
+        // This test will have "apple" in the vocabulary due to beforeEach modification
+
+        // Check if the vocabulary size is still the same since "apple" is a duplicate
+        expect(vocabulary.getVocabularySize()).toBe(3);
     });
 });
