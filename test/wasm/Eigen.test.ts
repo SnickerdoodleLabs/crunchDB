@@ -1,4 +1,3 @@
-const fs = require('fs');
 var eigenFactory = require('../../src/wasm/eigen_mod.js');
 // var eigenFactory = require('../../src/wasm/eigen.js');
 
@@ -48,35 +47,6 @@ function makeAPI(eigen: any) {
     return api;
 }
 describe('Eigen', () => {
-    // let eigen: any;
-    beforeAll(async () => {
-        // const wasmBinary = fs.readFileSync('./src/wasm/eigen.wasm');
-        // console.log(wasmBinary);
-        // // var asmLibraryArg = {
-        // //   "__assert_fail": ___assert_fail,
-        // //   "__cxa_allocate_exception": ___cxa_allocate_exception,
-        // //   "__cxa_throw": ___cxa_throw,
-        // //   "emscripten_memcpy_big": _emscripten_memcpy_big,
-        // //   "emscripten_resize_heap": _emscripten_resize_heap
-        // // };
-        // // var info = {
-        // //   'env': asmLibraryArg,
-        // //   'wasi_snapshot_preview1': asmLibraryArg,
-        // // };
-        // const imports =  {
-        //     env: {
-        //         memoryBase: 0,
-        //         tableBase: 0,
-        //         memory: new WebAssembly.Memory({ initial: 1024 }),
-        //         table: new WebAssembly.Table({ initial: 16, element: 'anyfunc' }),
-        //         abort: console.log
-        //     }
-        // }
-        // const eigen = await WebAssembly.instantiate(new Uint8Array(wasmBinary), imports)                        .then(result => result.instance.exports);
-        // console.log(eigen);
-    })
-    // const eigenFactory = require('../../src/wasm/eigen.js');
-    // console.log(eigenFactory);
     it('should add two matrices', async () => {
         const mat1 = Float32Array.from([1, 2, 3, 4]);
         const mat2 = Float32Array.from([5, 6, 7, 8]);
