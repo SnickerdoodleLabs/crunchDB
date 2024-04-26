@@ -1,5 +1,5 @@
 import { Vocabulary } from "crunchDB/implementations";
-import { Word, WordRoot, WordIndex } from "crunchDB/objects";
+import { Word, WordRoot, WordIndex, WordToIndex, VocabularySize } from "crunchDB/objects"; 
 
 describe("Vocabulary", () => {
     const words: (Word | WordRoot)[] = [Word("apple"), Word("banana"), Word("orange")];
@@ -27,20 +27,20 @@ describe("Vocabulary", () => {
             expect(vocabulary.getWordFromIndex(WordIndex(i))).toBe(words[i]);
         }
     });
-
+    
     it("should return word to index mapping", () => {
         // Get the word to index mapping from the vocabulary
-        const wordToIndex = vocabulary.getWordToIndex();
+        const wordToIndex: WordToIndex = vocabulary.getWordToIndex();
 
         // Check if each word is mapped to the correct index
         words.forEach((word, index) => {
-            expect(wordToIndex[word]).toBe(index);
+            expect(wordToIndex.get(word)).toBe(index);
         });
     });
 
     it("should return vocabulary size", () => {
         // Get the vocabulary size
-        const size = vocabulary.getVocabularySize();
+        const size : VocabularySize = vocabulary.getVocabularySize();
 
         // Check if the vocabulary size matches the number of words
         expect(size).toBe(words.length);
@@ -51,5 +51,11 @@ describe("Vocabulary", () => {
 
         // Check if the vocabulary size is still the same since "apple" is a duplicate
         expect(vocabulary.getVocabularySize()).toBe(3);
+    });
+
+    it("should return null for a word that is not present in the vocabulary", () => {
+        // Check if getIndex returns null for a word not present in the vocabulary
+        const nonExistentWord : Word  = Word("grape");
+        expect(vocabulary.getWordIndex(nonExistentWord)).toBeNull();
     });
 });

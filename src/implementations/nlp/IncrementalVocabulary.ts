@@ -1,7 +1,7 @@
-import { Word, WordRoot, WordIndex } from "crunchDB/objects";
+import { Word, WordRoot, WordIndex, DuplicateWordError } from "crunchDB/objects";
 import { IIncrementalVocabulary } from "crunchDB/interfaces"; 
 import { Vocabulary } from "./Vocabulary";
-import {  Err } from 'neverthrow'; 
+import {  okAsync, errAsync,  ResultAsync } from 'neverthrow'; 
 
 export class IncrementalVocabulary extends Vocabulary implements IIncrementalVocabulary {
 
@@ -10,13 +10,16 @@ export class IncrementalVocabulary extends Vocabulary implements IIncrementalVoc
   * @description: adds words/ word roots to the vocabulary
   * @throws Err if the word/ word root is already present in the vocabulary
   * */
-  public addWord(word: Word | WordRoot): void {
-    if (this.wordToIndex.hasOwnProperty(word)) {
-      
-      throw new Err(`Duplicate word "${word}" cannot be added.`);
+  public addWord(word: Word | WordRoot): ResultAsync<void, DuplicateWordError> {
+    if (this.wordToIndex.has(word)) { // duplicate check 
+      return errAsync( new DuplicateWordError("Word already exists in the vocabulary")); 
     }
-    this.wordToIndex[word] = WordIndex(this.indexToWord.length);
-    this.indexToWord.push(word);
+    else{
+      this.wordToIndex.set(word, WordIndex(this.wordToIndex.size));
+      this.indexToWord.push(word); 
+      return okAsync(undefined);
+    }
+
   }
 }
 
