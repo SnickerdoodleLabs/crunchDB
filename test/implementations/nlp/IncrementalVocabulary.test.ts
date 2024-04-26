@@ -1,39 +1,25 @@
 import { IncrementalVocabulary } from  "crunchDB/implementations";
-import { Word, WordRoot } from "crunchDB/objects";
-import { Err } from 'neverthrow';
+import {  Word, WordRoot } from "crunchDB/objects";
 describe("IncrementalVocabulary", () => {
   const words: (Word | WordRoot)[] = [Word("apple"), Word("banana"), Word("orange")];
-  let vocabulary: IncrementalVocabulary;
+  let iVocabulary: IncrementalVocabulary;
 
   beforeEach(() => {
-    vocabulary = new IncrementalVocabulary(words);
+    iVocabulary = new IncrementalVocabulary(words);
   });
 
-  it("should add words to the vocabulary", () => {
+  it("should add words to the vocabulary", async () => {
 
-    expect(vocabulary.getVocabularySize()).toBe(3);
+    const word = Word("grape");
+    const result = await iVocabulary.addWord(word);
+    expect(result.isOk()).toBe(true);
+    expect(iVocabulary.getVocabularySize()).toBe(4);
   });
 
-  it("should throw error for duplicate word", () => {
-    
-    try {
-        vocabulary.addWord(Word("apple"));
-
-        // Fail the test if no error is thrown
-        fail("Expected an error to be thrown for duplicate word.");
-    } catch (error) {
-        // Check if the error is an instance of Err from neverthrow
-        expect(error).toBeInstanceOf(Err);
-
-        if (error instanceof Err) {
-          // Access the error message from the error object
-          const errorMessage = error.error;
-          expect(errorMessage).toContain('Duplicate word "apple" cannot be added.');
-      } else {
-          // Log an error message if 'error' is not of type 'Err'
-          console.error("Error is not of type 'Err'");
-          fail("Unexpected error type");
-      }
-    }
-});
+  it("should not add duplicate words to the vocabulary", async () => {
+    const word = Word("apple");
+    const result = await iVocabulary.addWord(word);
+    expect(result.isErr()).toBe(true);
+    expect(iVocabulary.getVocabularySize()).toBe(3);
+  });
 });

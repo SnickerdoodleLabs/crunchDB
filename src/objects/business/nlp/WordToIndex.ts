@@ -1,4 +1,2 @@
-import { WordIndex } from "objects/primitive";
-export type WordToIndex = {
-    [key: string]: WordIndex;
-}
+import { WordIndex, Word, WordRoot } from "objects/primitive";
+export type WordToIndex = Map<Word | WordRoot, WordIndex>;
