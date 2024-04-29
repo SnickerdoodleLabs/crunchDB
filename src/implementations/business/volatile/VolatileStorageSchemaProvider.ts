@@ -6,13 +6,13 @@ import {
 import { inject, injectable } from 'inversify';
 import { errAsync, okAsync, ResultAsync } from 'neverthrow';
 
-import { getObjectStoreDefinitions } from 'crunchDB/implementations/business/volatile/objectStores.js';
+import { getObjectStoreDefinitions } from 'crunchDB/implementations/business/volatile/objectStores';
 import {
   IPersistenceConfigProvider,
   IPersistenceConfigProviderType,
-} from 'crunchDB/implementations/business/volatile/IPersistenceConfigProvider.js';
-import { IVolatileStorageSchemaProvider } from 'crunchDB/implementations/business/volatile/IVolatileStorageSchemaProvider.js';
-import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex.js';
+} from 'crunchDB/implementations/business/volatile/IPersistenceConfigProvider';
+import { IVolatileStorageSchemaProvider } from 'crunchDB/implementations/business/volatile/IVolatileStorageSchemaProvider';
+import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex';
 
 @injectable()
 export class VolatileStorageSchemaProvider

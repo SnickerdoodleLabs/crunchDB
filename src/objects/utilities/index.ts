@@ -1,1 +1,1 @@
-export * from './PropertiesOf.js';
+export * from './PropertiesOf';

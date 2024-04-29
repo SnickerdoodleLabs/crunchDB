@@ -5,7 +5,7 @@ import {
   VersionedObjectMigrator,
 } from 'crunchDB/objects';
 
-import { IStorageIndex } from 'crunchDB/implementations/business/volatile/IStorageIndex.js';
+import { IStorageIndex } from 'crunchDB/implementations/business/volatile/IStorageIndex';
 
 /**
  * Represents the structure of a table in the volatile storage.

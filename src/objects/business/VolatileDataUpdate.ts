@@ -1,9 +1,9 @@
-import { VersionedObject } from "@objects/businessObjects/versioned/index.js";
-import { EDataUpdateOpCode } from "@objects/enum/index.js";
 import {
-  UnixTimestamp,
+  EDataUpdateOpCode,
   VolatileStorageKey,
-} from "@objects/primitives/index.js";
+  UnixTimestamp,
+  VersionedObject,
+} from 'crunchDB/objects';
 
 export class VolatileDataUpdate {
   public constructor(
@@ -12,6 +12,6 @@ export class VolatileDataUpdate {
     public key: VolatileStorageKey | null,
     public timestamp: UnixTimestamp,
     public value: VersionedObject,
-    public version: number,
+    public version: number
   ) {}
 }

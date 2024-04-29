@@ -1,13 +1,11 @@
-import { VersionedObject } from "@objects/businessObjects/versioned/index.js";
-import { EBoolean } from "@objects/enum/index.js";
-import { UnixTimestamp } from "@objects/primitives/index.js";
+import { VersionedObject, EBoolean, UnixTimestamp } from 'crunchDB/objects';
 
 export const DatabaseVersion = 3;
-export const VolatileStorageDataKey = "data";
+export const VolatileStorageDataKey = 'data';
 export const VolatileStorageMetadataIndexes: [string, boolean][] = [
-  ["deleted", false],
-  ["version", false],
-  ["lastUpdate", false],
+  ['deleted', false],
+  ['version', false],
+  ['lastUpdate', false],
 ];
 
 export class VolatileStorageMetadata<T extends VersionedObject> {
@@ -15,6 +13,6 @@ export class VolatileStorageMetadata<T extends VersionedObject> {
     public data: T,
     public lastUpdate: UnixTimestamp,
     public version: number,
-    public deleted: EBoolean = EBoolean.FALSE,
+    public deleted: EBoolean = EBoolean.FALSE
   ) {}
 }

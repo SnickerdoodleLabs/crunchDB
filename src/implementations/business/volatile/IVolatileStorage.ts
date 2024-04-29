@@ -7,7 +7,7 @@ import {
 } from 'crunchDB/objects';
 import { ResultAsync } from 'neverthrow';
 
-import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor';
 
 export interface IVolatileStorage {
   persist(): ResultAsync<boolean, PersistenceError>;

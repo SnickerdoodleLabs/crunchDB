@@ -5,7 +5,7 @@ import {
 } from 'crunchDB/objects';
 import { okAsync, ResultAsync } from 'neverthrow';
 
-import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor';
 
 export class IndexedDBCursor<T extends VersionedObject>
   implements IVolatileCursor<T> {

@@ -12,9 +12,9 @@ import {
 import { errAsync, okAsync, ResultAsync } from 'neverthrow';
 import { ResultUtils } from 'neverthrow-result-utils';
 
-import { IndexedDBCursor } from 'crunchDB/implementations/business/volatile/IndexedDBCursor.js';
-import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor.js';
-import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex.js';
+import { IndexedDBCursor } from 'crunchDB/implementations/business/volatile/IndexedDBCursor';
+import { IVolatileCursor } from 'crunchDB/implementations/business/volatile/IVolatileCursor';
+import { VolatileTableIndex } from 'crunchDB/implementations/business/volatile/VolatileTableIndex';
 
 export class IndexedDB {
   private _initialized?: ResultAsync<IDBDatabase, PersistenceError>;
