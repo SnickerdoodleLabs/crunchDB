@@ -1,5 +1,5 @@
-import { ISimilarityNormalized } from "crunchDB/interfaces";
 import { Embedding, SimilarityError, SimilarityScoreNormalized } from "crunchDB/objects";
+import { ISimilarityNormalized } from "crunchDB/interfaces";
 import { ResultAsync, errAsync, okAsync } from "neverthrow";
 
 export class SampleSimilarity implements ISimilarityNormalized {
