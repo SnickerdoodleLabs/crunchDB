@@ -1,6 +1,5 @@
-import { IVocabulary } from "interfaces";
-import { VocabularySize, Word, WordRoot, WordIndex } from "objects";
-import { WordToIndex } from "objects/business/nlp/WordToIndex";
+import { IVocabulary } from "crunchDB/interfaces";
+import { VocabularySize, Word, WordRoot, WordIndex, WordToIndex } from "crunchDB/objects";
 
 export class Vocabulary implements IVocabulary {
 
@@ -10,7 +9,7 @@ export class Vocabulary implements IVocabulary {
     public constructor(words: (Word | WordRoot)[]) {
 
         for (let i = 0; i < words.length; i++) {
-            this.wordToIndex[words[i]] = WordIndex(i);
+            this.wordToIndex[words[i] as string] = WordIndex(i);
             this.indexToWord[i] = words[i];
         }
     }

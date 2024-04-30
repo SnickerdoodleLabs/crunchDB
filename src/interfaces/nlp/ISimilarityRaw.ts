@@ -1,5 +1,6 @@
-import { SimilarityScoreRaw } from "objects";
+import { SimilarityError, SimilarityScoreRaw } from "crunchDB/objects";
+import { ResultAsync } from "neverthrow";
 
 export interface ISimilarityRaw {
-    getRawSimilarityScore(): SimilarityScoreRaw;
+    getRawSimilarityScore(): ResultAsync<SimilarityScoreRaw, SimilarityError>;
 }
