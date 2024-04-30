@@ -19,7 +19,7 @@ export class CosineSimilarity implements ISimilarityNormalized {
         }
 
         if (normA === 0 || normB === 0) {
-            throw errAsync(new SimilarityError("Norm of vector cannot be zero"));
+            return errAsync(new SimilarityError("Norm of vector cannot be zero"));
         }
         
         const similarity = dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));

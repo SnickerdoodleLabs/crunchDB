@@ -15,7 +15,8 @@ export class JaccardSimilarity implements ISimilarityNormalized {
             if (embedding1[i] > 0 && embedding2[i] > 0) intersection++;
             if (embedding1[i] > 0 || embedding2[i] > 0) union++;
         }
-        const similarity = union === 0 ? 0 : intersection / union;
+
+        const similarity = intersection === 0 ? 0 : intersection / union;
         return okAsync(SimilarityScoreNormalized(similarity));
     }
 }

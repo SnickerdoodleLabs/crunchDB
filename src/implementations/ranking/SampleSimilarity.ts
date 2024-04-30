@@ -5,7 +5,7 @@ import { ResultAsync, errAsync, okAsync } from "neverthrow";
 export class SampleSimilarity implements ISimilarityNormalized {
     getNormalizedSimilarityScore(embedding1: Embedding, embedding2: Embedding): ResultAsync<SimilarityScoreNormalized, SimilarityError> {
         
-        if (embedding1 === embedding2) {
+        if (JSON.stringify(embedding1) === JSON.stringify(embedding2)) {
             const similarity = SimilarityScoreNormalized(0.05);
             return okAsync(similarity);
         } else {
