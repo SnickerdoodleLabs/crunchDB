@@ -61,7 +61,8 @@
   },
   "dependencies": {
     "eigen": "^0.2.2",
-    "neverthrow": "^6.1.0",
+    "neverthrow": "^5.1.0",
+    "neverthrow-result-utils": "^2.0.2",
     "ts-brand": "^0.1.0"
   }
 }

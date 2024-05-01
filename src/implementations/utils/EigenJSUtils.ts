@@ -1,22 +1,31 @@
 import { IEigenJSUtils } from "crunchDB/interfaces";
-import { Matrix, Vector } from "crunchDB/objects";
+import { EigenJSNotReadyError, Matrix, Vector } from "crunchDB/objects";
 import eig from "eigen";
 import { ResultAsync, okAsync } from "neverthrow";
 
 export class EigenJSUtils implements IEigenJSUtils {
-    public toJS(matrix: eig.Matrix): ResultAsync<Matrix | Vector, never>{
-        return okAsync(this.toJSSync(matrix));
+    public ready() : ResultAsync<void, EigenJSNotReadyError> {
+        return ResultAsync.fromPromise(eig.ready, () => new EigenJSNotReadyError("Eigen-js is not ready"));
+    }
+    public toJS(matrix: eig.Matrix): ResultAsync<Matrix, EigenJSNotReadyError>{
+        return this.ready().andThen(() => {
+            return okAsync(this.toJSSync(matrix));
+        });
     }
 
-    public toRowVector(matrix: eig.Matrix): ResultAsync<Vector, never> {
-        return okAsync(this.toRowVectorSync(matrix));
+    public toRowVector(matrix: eig.Matrix): ResultAsync<Vector, EigenJSNotReadyError> {
+        return this.ready().andThen(() => {
+            return okAsync(this.toRowVectorSync(matrix));
+        });
     }
 
-    public fromJS(matrix: Matrix | Vector): ResultAsync<eig.Matrix, never> {
-        return okAsync(this.fromJSSync(matrix));
+    public fromJS(matrix: Matrix): ResultAsync<eig.Matrix, EigenJSNotReadyError> {
+        return this.ready().andThen(() => {
+            return okAsync(this.fromJSSync(matrix));
+        });
 
     }
-    public toJSSync(matrix: eig.Matrix): Matrix | Vector {
+    private toJSSync(matrix: eig.Matrix): Matrix {
         
         if (matrix.rows() === 1) {
             return this.toRowVectorSync(matrix);
@@ -32,7 +41,7 @@ export class EigenJSUtils implements IEigenJSUtils {
             return rows;
         }
     }
-    public toRowVectorSync(matrix: eig.Matrix): Vector {
+    private toRowVectorSync(matrix: eig.Matrix): Vector {
         
         let row = [];
         for (let j = 0; j < matrix.cols(); j++) {
@@ -41,7 +50,7 @@ export class EigenJSUtils implements IEigenJSUtils {
         return row;
         
     }
-    public fromJSSync(matrix: Matrix | Vector): eig.Matrix {
+    private fromJSSync(matrix: Matrix): eig.Matrix {
         // two issues with eigen-js:
         // cannot convert a row vector to a matrix [1, 1] will become a 2x1 matrix
 

@@ -1,10 +1,11 @@
-import { Matrix, Shape } from "crunchDB/objects";
+import { Matrix, MatrixErrors, Shape } from "crunchDB/objects";
+import { ResultAsync } from "neverthrow";
 
 export interface IMatrixOperators {
     shape(matrix: Matrix): Shape;
     shapeEqual(matrix1: Matrix, matrix2: Matrix): boolean;
     
-    add(matrix1: Matrix, matrix2: Matrix): Matrix;
+    add(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors>;
     subtract(matrix1: Matrix, matrix2: Matrix): Matrix;
     multiply(matrix1: Matrix, matrix2: Matrix): Matrix;
     transpose(matrix: Matrix): Matrix;

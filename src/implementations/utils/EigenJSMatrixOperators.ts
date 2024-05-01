@@ -1,15 +1,38 @@
 import { IMatrixOperators } from "crunchDB/interfaces";
-import { Matrix, Shape } from "crunchDB/objects";
+import { Matrix, MatrixErrors, MatrixOperatorsError, Shape } from "crunchDB/objects";
+import { IEigenJSUtils } from "crunchDB/interfaces/utils/IEigenJSUtils";
+import { ResultAsync, errAsync } from "neverthrow";
+import { ResultUtils } from "neverthrow-result-utils";
+import eig from "eigen";
 
 export class EigenJSMatrixOperators implements IMatrixOperators {
+    public constructor(readonly eigenJSUtils: IEigenJSUtils) {
+
+    }
+
     public shape(matrix: Matrix): Shape {
         throw new Error("Method not implemented.");
     }
     public shapeEqual(matrix1: Matrix, matrix2: Matrix): boolean {
-        throw new Error("Method not implemented.");
+        // TODO implement
+        return true;
     }
-    public add(matrix1: Matrix, matrix2: Matrix): Matrix {
-        throw new Error("Method not implemented.");
+    public add(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors> {
+        // TODO validate shape equality first. return error
+        if (!this.shapeEqual(matrix1, matrix2)) {
+            return errAsync(new MatrixOperatorsError("Shapes are not equal"));
+        }
+        const mat1Res = this.eigenJSUtils.fromJS(matrix1);
+        const mat2Res = this.eigenJSUtils.fromJS(matrix2);
+
+        // ResultUtils can wait on a list of promises and then combine the results into an array
+        return ResultUtils.combine([mat1Res, mat2Res]).andThen(([mat1, mat2]) => {
+            const sum = mat1.matAdd(mat2);
+            const jsResult = this.eigenJSUtils.toJS(sum);
+            eig.GC.flush(); // interestingly the libray does not expose the function to delete individual objects. This will delete everything except for the whitelisted items.
+            return jsResult;
+        });
+
     }
     public subtract(matrix1: Matrix, matrix2: Matrix): Matrix {
         throw new Error("Method not implemented.");
