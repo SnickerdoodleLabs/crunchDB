@@ -60,6 +60,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
+    "eigen": "^0.2.2",
     "neverthrow": "^6.1.0",
     "ts-brand": "^0.1.0"
   }

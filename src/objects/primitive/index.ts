@@ -4,6 +4,7 @@ export * from './Matrix';
 export * from './OHE';
 export * from './Vector';
 export * from './CoOccurence';
+export * from './Shape';
 export * from './Word';
 export * from './WordRoot';
 export * from './WordIndex';

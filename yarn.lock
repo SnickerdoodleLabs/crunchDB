@@ -1491,6 +1491,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/hashmap@^2.3.1":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@types/hashmap/-/hashmap-2.3.4.tgz#a4c02ad6e652ff0505a8dfb58d319a65a05396ca"
+  integrity sha512-IoFSb7S7cwCM23HcAhUS57DBWPU0dPSF6Wz4M4y0S+B1xgGmM08WOzd1wBldesmZ28jhzRNmXda/FO5uY3tLlw==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.6.tgz#7739c232a1fee9b4d3ce8985f314c0c6d33549d7"
@@ -2705,6 +2710,14 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
+eigen@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/eigen/-/eigen-0.2.2.tgz#6ac45d84f74bbc95e48acb3305447878e5568a72"
+  integrity sha512-M+g7PKbPTJmQFOl60PYj0/jfU43qyuFrrPHZJCQYxfprV6jwRVaVHFJLhGH+eG8y9W/I/YjwzJTmIWLdLv2o2g==
+  dependencies:
+    "@types/hashmap" "^2.3.1"
+    hashmap "^2.4.0"
+
 electron-to-chromium@^1.4.668:
   version "1.4.729"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.729.tgz#8477d21e2a50993781950885b2731d92ad532c00"
@@ -3718,6 +3731,11 @@ has-values@^1.0.0:
   dependencies:
     is-number "^3.0.0"
     kind-of "^4.0.0"
+
+hashmap@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/hashmap/-/hashmap-2.4.0.tgz#4bcfe01fbbd2713db9d9254ce936b838412af884"
+  integrity sha512-Ngj48lhnxJdnBAEVbubKBJuN1elfVLZJs94ZixRi98X3GCU4v6pgj9qRkHt6H8WaVJ69Wv0r1GhtS7hvF9zCgg==
 
 hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
   version "2.0.2"
