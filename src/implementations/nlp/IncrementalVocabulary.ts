@@ -17,7 +17,7 @@ export class IncrementalVocabulary extends Vocabulary implements IIncrementalVoc
     else{
       this.wordToIndex.set(word, WordIndex(this.wordToIndex.size));
       this.indexToWord.push(word); 
-      return okAsync(void 0);
+      return okAsync(undefined);
     }
 
   }
