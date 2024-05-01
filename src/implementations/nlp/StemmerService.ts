@@ -1,5 +1,5 @@
 import { BaseStemmer } from "@nlpjs/core";
-import { StemmerEn, StopwordsEn } from "@nlpjs/lang-en/index.js";
+import { StemmerEn, StopwordsEn } from "@nlpjs/lang-en";
 import { IStemmerService } from "crunchDB/interfaces";
 import { ELanguageCode, NLPSupportedLanguages, NLPError } from "crunchDB/objects";
 import { ResultAsync, errAsync, okAsync } from "neverthrow";
