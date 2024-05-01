@@ -6,6 +6,8 @@ const config = {
         "objects/(.*)": "<rootDir>/src/objects/$1",
         "implementations/(.*)": "<rootDir>/src/implementations/$1",
         "interfaces/(.*)": "<rootDir>/src/interfaces/$1",
+        "test/(.*)": "<rootDir>/test/$1",
+        "mocks/(.*)": "<rootDir>/test/mocks/$1",
     }
   };
   
