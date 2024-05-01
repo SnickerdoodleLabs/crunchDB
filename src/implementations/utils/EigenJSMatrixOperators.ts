@@ -10,6 +10,13 @@ export class EigenJSMatrixOperators implements IMatrixOperators {
 
     }
 
+    private wrapResultWithGCFlush(result: ResultAsync<Matrix, MatrixErrors>): ResultAsync<Matrix, MatrixErrors> {
+        return result.map((matrix) => {
+            eig.GC.flush();
+            return matrix;
+        });
+    }
+
     public shape(matrix: Matrix): Shape {
         throw new Error("Method not implemented.");
     }
@@ -18,6 +25,8 @@ export class EigenJSMatrixOperators implements IMatrixOperators {
         return true;
     }
     public add(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors> {
+
+        
         // TODO validate shape equality first. return error
         if (!this.shapeEqual(matrix1, matrix2)) {
             return errAsync(new MatrixOperatorsError("Shapes are not equal"));
@@ -28,9 +37,10 @@ export class EigenJSMatrixOperators implements IMatrixOperators {
         // ResultUtils can wait on a list of promises and then combine the results into an array
         return ResultUtils.combine([mat1Res, mat2Res]).andThen(([mat1, mat2]) => {
             const sum = mat1.matAdd(mat2);
+            // sum.print("sum");
             const jsResult = this.eigenJSUtils.toJS(sum);
-            eig.GC.flush(); // interestingly the libray does not expose the function to delete individual objects. This will delete everything except for the whitelisted items.
-            return jsResult;
+            
+            return this.wrapResultWithGCFlush(jsResult);
         });
 
     }
@@ -64,5 +74,7 @@ export class EigenJSMatrixOperators implements IMatrixOperators {
     public divideScalar(matrix: Matrix, scalar: number): Matrix {
         throw new Error("Method not implemented.");
     }
+
+
     
 }

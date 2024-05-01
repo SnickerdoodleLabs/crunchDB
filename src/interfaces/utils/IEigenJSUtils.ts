@@ -7,6 +7,7 @@ import { ResultAsync } from "neverthrow";
 Utils for eigen-js library.
 */
 export interface IEigenJSUtils {
+    ready() : ResultAsync<void, EigenJSNotReadyError>;
     toJS(matrix: eig.Matrix): ResultAsync<Matrix, EigenJSNotReadyError>;
     toRowVector(matrix: eig.Matrix): ResultAsync<Vector, EigenJSNotReadyError>;
     fromJS(matrix: Matrix): ResultAsync<eig.Matrix, EigenJSNotReadyError>;

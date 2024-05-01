@@ -4,8 +4,13 @@ import eig from "eigen";
 import { ResultAsync, okAsync } from "neverthrow";
 
 export class EigenJSUtils implements IEigenJSUtils {
+    private isReady = false;
     public ready() : ResultAsync<void, EigenJSNotReadyError> {
-        return ResultAsync.fromPromise(eig.ready, () => new EigenJSNotReadyError("Eigen-js is not ready"));
+        if (this.isReady) {
+            return okAsync(undefined);
+        } else {
+            return ResultAsync.fromPromise(eig.ready, () => new EigenJSNotReadyError("Eigen-js is not ready"));
+        }
     }
     public toJS(matrix: eig.Matrix): ResultAsync<Matrix, EigenJSNotReadyError>{
         return this.ready().andThen(() => {
