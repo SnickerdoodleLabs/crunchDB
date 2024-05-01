@@ -10,7 +10,7 @@ class Mocks {
   }
 }
 describe("StemmerService", () => {
-  test("english stop words", async () => {
+  it("english stop words", async () => {
     // Arange
     const mocks = new Mocks();
     const service = mocks.factory();
@@ -32,5 +32,22 @@ describe("StemmerService", () => {
     expect(tokens.includes(";")).toBeFalsy();
     expect(tokens.includes("[")).toBeFalsy();
     expect(tokens.includes("]")).toBeFalsy();
+  });
+
+  it("I am running -> ['run']", async () => {
+    // Arange
+    const mocks = new Mocks();
+    const service = mocks.factory();
+    const text = "I am running";
+    const expected = ["run"];
+
+    // Act
+    const result = await service.tokenize(ELanguageCode.English, text);
+
+    // Assert
+    expect(result.isOk()).toBeTruthy();
+    const tokens = result._unsafeUnwrap();
+    console.log("tokens", tokens);
+    expect(tokens).toEqual(expected);
   });
 });
