@@ -1,5 +1,5 @@
 import { ContainerModule, interfaces } from 'inversify';
-import { IndexedDB } from './business/IndexedDB';
+import { IndexedDB } from 'crunchDB/implementations/business/IndexedDB';
 import {
   IIndexedDB,
   IIndexedDBType,

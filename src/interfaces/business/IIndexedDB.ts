@@ -1,6 +1,6 @@
 // IIndexedDB.ts
 import { ResultAsync } from 'neverthrow';
-import { SimpleObject } from '../../objects/business/SimpleObject';
+import { SimpleObject } from 'crunchDB/objects/business/SimpleObject';
 
 export interface IIndexedDB {
   init(): ResultAsync<void, Error>;
