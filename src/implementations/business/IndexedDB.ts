@@ -1,8 +1,8 @@
 import { injectable } from 'inversify';
 import { ResultAsync } from 'neverthrow';
-import { IDBConfig } from '../../objects/business/IDBConfig';
-import { VolatileObject } from '../../objects/business/VolatileObject';
-import { IIndexedDB } from '../../interfaces/business/IIndexedDB';
+import { IDBConfig } from 'crunchDB/objects/business/IDBConfig';
+import { VolatileObject } from 'crunchDB/objects/business/SimpleObject';
+import { IIndexedDB } from 'crunchDB/interfaces/business/IIndexedDB';
 
 @injectable()
 export class IndexedDB implements IIndexedDB {
@@ -39,7 +39,7 @@ export class IndexedDB implements IIndexedDB {
     );
   }
 
-  addVolatileObject(
+  addObject(
     storeName: string,
     VolatileObject: VolatileObject
   ): ResultAsync<void, Error> {
@@ -48,14 +48,14 @@ export class IndexedDB implements IIndexedDB {
     ).map(() => undefined);
   }
 
-  getVolatileObject(
+  getObject(
     storeName: string,
     id: number
   ): ResultAsync<VolatileObject, Error> {
     return this.transaction(storeName, 'readonly', store => store.get(id));
   }
 
-  getAllVolatileObjects(
+  getAllObjects(
     storeName: string
   ): ResultAsync<VolatileObject[], Error> {
     return ResultAsync.fromPromise(

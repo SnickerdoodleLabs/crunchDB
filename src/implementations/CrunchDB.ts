@@ -11,10 +11,9 @@ export class CrunchDB implements ICrunchDB {
 
   constructor(@inject(IIndexedDBType) dbService: IIndexedDB) {
     this.dbService = dbService;
-    this.initializeDatabase();
   }
 
-  private async initializeDatabase(): Promise<void> {
+  async initializeDatabase(): Promise<void> {
     this.dbService
       .init()
       .map(() => {

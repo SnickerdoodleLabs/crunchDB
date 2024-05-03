@@ -1,25 +1,20 @@
 // IIndexedDB.ts
 import { ResultAsync } from 'neverthrow';
-import { VolatileObject } from '../../objects/business/VolatileObject';  
+import { SimpleObject } from '../../objects/business/SimpleObject';
 
 export interface IIndexedDB {
   init(): ResultAsync<void, Error>;
 
-  addVolatileObject(
+  addObject(
     storeName: string,
-    VolatileObject: VolatileObject
+    VolatileObject: SimpleObject
   ): ResultAsync<void, Error>;
 
-  getVolatileObject(
-    storeName: string,
-    id: number
-  ): ResultAsync<VolatileObject, Error>;
+  getObject(storeName: string, id: number): ResultAsync<SimpleObject, Error>;
 
-  getAllVolatileObjects(
-    storeName: string
-  ): ResultAsync<VolatileObject[], Error>;
+  getAllObjects(storeName: string): ResultAsync<SimpleObject[], Error>;
 
-  getAllItems(storeName: string): ResultAsync<VolatileObject[], Error>;
+  getAllItems(storeName: string): ResultAsync<SimpleObject[], Error>;
 }
 
-export const IIndexedDBType = Symbol.for("IIndexedDB");
+export const IIndexedDBType = Symbol.for('IIndexedDB');
