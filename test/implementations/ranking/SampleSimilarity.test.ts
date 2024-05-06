@@ -17,8 +17,8 @@ describe("SampleSimilarity", () => {
         expect(result.isOk()).toBe(true);
         const value = result._unsafeUnwrap(); // extracts the value
         expect(value).toEqual(expected);
-
     });
+
     it("should get error", async () => {
         // Arrange
         const measure = new SampleSimilarity();
