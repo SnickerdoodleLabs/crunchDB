@@ -14,6 +14,7 @@
     // stricter type-checking for stronger correctness. Recommended by TS
     "strict": true,
     // linter checks for common issues
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
@@ -32,6 +33,7 @@
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
     "types": ["node","jest"],
+    "typeRoots": ["node_modules/@types", "./typings"],
     "baseUrl": ".", // This must be specified if "paths" is.
     "paths": {
       "crunchDB/*": ["src/*"],
