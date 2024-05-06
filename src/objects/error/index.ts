@@ -3,4 +3,7 @@ export * from './IndexDBError2';
 export * from './SimilarityError';
 export * from './DuplicateWordError';
 export * from './NLPError';
-export * from './DuplicateWordError';
+export * from './NLPError';
+export * from './MatrixErrors';
+export * from './MatrixOperatorsError';
+export * from './EigenJSNotReadyError';

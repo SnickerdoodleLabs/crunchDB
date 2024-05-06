@@ -4,5 +4,6 @@ const errorCodes: {[Key: string]: string} = {
     IndexDBError2: "ERR_IndexDBError2",
     NLPError: "ERR_NLPError",
     DuplicateWordError: "ERR_DuplicateWordError",
+    EigenJSNotReadyError: "ERR_EigenJSNotReadyError",
 }
 export default errorCodes;
