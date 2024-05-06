@@ -6,17 +6,17 @@ export interface IMatrixOperators {
     shapeEqual(matrix1: Matrix, matrix2: Matrix): boolean;
     
     add(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors>;
-    subtract(matrix1: Matrix, matrix2: Matrix): Matrix;
-    multiply(matrix1: Matrix, matrix2: Matrix): Matrix;
-    transpose(matrix: Matrix): Matrix;
-    inverse(matrix: Matrix): Matrix;
-    determinant(matrix: Matrix): number;
-    solve(matrix: Matrix, rhs: Matrix): Matrix;
+    subtract(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors>;
+    multiply(matrix1: Matrix, matrix2: Matrix): ResultAsync<Matrix, MatrixErrors>;
+    transpose(matrix: Matrix): ResultAsync<Matrix, MatrixErrors>;
+    inverse(matrix: Matrix): ResultAsync<Matrix, MatrixErrors>;
+    determinant(matrix: Matrix): ResultAsync<number, MatrixErrors>;
+    solve(matrix: Matrix, rhs: Matrix): ResultAsync<Matrix, MatrixErrors>;
     
-    addScalar(matrix: Matrix, scalar: number): Matrix;
-    subtractScalar(matrix: Matrix, scalar: number): Matrix;
-    multiplyScalar(matrix: Matrix, scalar: number): Matrix;
-    divideScalar(matrix: Matrix, scalar: number): Matrix;
+    addScalar(matrix: Matrix, scalar: number): ResultAsync<Matrix, MatrixErrors>;
+    subtractScalar(matrix: Matrix, scalar: number): ResultAsync<Matrix, MatrixErrors>;
+    multiplyScalar(matrix: Matrix, scalar: number): ResultAsync<Matrix, MatrixErrors>;
+    divideScalar(matrix: Matrix, scalar: number): ResultAsync<Matrix, MatrixErrors>;
 
 
 }

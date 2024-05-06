@@ -1,4 +1,4 @@
-import { ResultAsync, errAsync, okAsync } from "neverthrow";
+import { okAsync } from "neverthrow";
 import { ResultUtils } from "neverthrow-result-utils";
 
 describe("ResultUtils tests", () => {
