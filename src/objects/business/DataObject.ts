@@ -1,6 +1,4 @@
 //@TODO add properties and rename the file to VolatileObject.ts
-export interface SimpleObject {
+export interface DataObject {
   id: number;
-  name: string;
-  value: string;
 }

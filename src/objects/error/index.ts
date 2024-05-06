@@ -5,3 +5,4 @@ export * from './NLPError';
 export * from './MatrixErrors';
 export * from './MatrixOperatorsError';
 export * from './EigenJSNotReadyError';
+export * from './PersistenceError';
