@@ -3871,6 +3871,11 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
+inversify@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/inversify/-/inversify-6.0.2.tgz#dc7fa0348213d789d35ffb719dea9685570989c7"
+  integrity sha512-i9m8j/7YIv4mDuYXUAcrpKPSaju/CIly9AHK5jvCBeoiM/2KEsuCQTTP+rzSWWpLYWRukdXFSl6ZTk2/uumbiA==
+
 ip-regex@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
@@ -5145,10 +5150,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-neverthrow@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/neverthrow/-/neverthrow-6.1.0.tgz#51a6e9ce2e06600045b3c1b37aecc536d267bf95"
-  integrity sha512-xNbNjp/6M5vUV+mststgneJN9eJeJCDSYSBTaf3vxgvcKooP+8L0ATFpM8DGfmH7UWKJeoa24Qi33tBP9Ya3zA==
+neverthrow@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/neverthrow/-/neverthrow-5.1.0.tgz#709bcb477fa6bcf0c1f6a3f875d8a1a2eee0e46d"
+  integrity sha512-tgoYQZjAG+30dcUM35FL8FSQA52WQ6QPnk9laHUZBZ7CliB2vdR1aU7Svr10kyHJ3gwTzMTAajKT5xbdi0QS+Q==
 
 nice-try@^1.0.4:
   version "1.0.5"
