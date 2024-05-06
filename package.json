@@ -43,11 +43,11 @@
   "size-limit": [
     {
       "path": "dist/crunchdb.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "1000 KB"
     },
     {
       "path": "dist/crunchdb.esm.js",
-      "limit": "10 KB"
+      "limit": "1000 KB"
     }
   ],
   "devDependencies": {
@@ -61,7 +61,9 @@
   },
   "dependencies": {
     "inversify": "^6.0.2",
-    "neverthrow": "^6.1.0",
+    "@nlpjs/core": "^4.26.1",
+    "@nlpjs/lang-en": "^4.26.1",
+    "neverthrow": "^5.1.0",
     "ts-brand": "^0.1.0"
   }
 }
