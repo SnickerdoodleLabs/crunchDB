@@ -35,9 +35,9 @@ export class EigenJSUtils implements IEigenJSUtils {
         if (matrix.rows() === 1) {
             return this.toRowVectorSync(matrix);
         } else {
-            let rows = [];
+            let rows: Vector[] = [];
             for (let i = 0; i < matrix.rows(); i++) {
-                let row = [];
+                let row: Vector = [];
                 for (let j = 0; j < matrix.cols(); j++) {
                     row.push(matrix.get(i, j));
                 }
@@ -48,7 +48,7 @@ export class EigenJSUtils implements IEigenJSUtils {
     }
     private toRowVectorSync(matrix: eig.Matrix): Vector {
         
-        let row = [];
+        let row: Vector = [];
         for (let j = 0; j < matrix.cols(); j++) {
             row.push(matrix.get(0, j));
         }
