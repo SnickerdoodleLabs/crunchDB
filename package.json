@@ -25,7 +25,6 @@
     "make:brand": "node build/cli/make.js -m brand -n",
     "make:interface": "node build/cli/make.js -m interface -n"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -52,6 +51,7 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.2",
+    "@types/lodash": "^4.17.0",
     "husky": "^9.0.11",
     "size-limit": "^11.1.2",
     "ts-command-line-args": "^2.5.1",
@@ -63,7 +63,9 @@
     "inversify": "^6.0.2",
     "@nlpjs/core": "^4.26.1",
     "@nlpjs/lang-en": "^4.26.1",
+    "eigen": "^0.2.2",
     "neverthrow": "^5.1.0",
+    "neverthrow-result-utils": "^2.0.2",
     "ts-brand": "^0.1.0"
   }
 }
